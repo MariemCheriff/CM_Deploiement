@@ -9,7 +9,7 @@ public class Client {
         // Le résultat est converti en type Hello (interface distante)
         Hello stub = (Hello) Naming.lookup("rmi://localhost/Hello");
 
-        // On appelle la méthode distante sayHello() en envoyant "Samir"
+        // On appelle la méthode distante sayHello()
         // serveur renvoie le résultat
         // résultat est ensuite affiché
         System.out.println(stub.sayHello("Meriem"));
