@@ -1,10 +1,6 @@
-
 from spyne import Application, rpc, ServiceBase, Unicode
-
 from spyne.protocol.soap import Soap11
-
 from spyne.server.wsgi import WsgiApplication
-
 from wsgiref.simple_server import make_server
 
 
@@ -12,15 +8,15 @@ from wsgiref.simple_server import make_server
 # ServiceBase est la classe de base des services Spyne
 class HelloService(ServiceBase):
 
-    # on va déclarer une opération SOAP qui renvoie une chaîne de caractères
+    # On déclare une opération SOAP qui renvoie une chaîne de caractères
     @rpc(_returns=Unicode)
     def say_hello(ctx):
-        # on renvoie la réponse au client
+        # On renvoie la réponse au client
         return "Bonjour"
 
 
 application = Application(
-    [HelloService], 
+    [HelloService],
 
     tns='spyne.examples.hello',
 
@@ -43,3 +39,6 @@ if __name__ == '__main__':
 
     # On maintient le serveur actif pour recevoir les requêtes
     server.serve_forever()
+
+
+# Et on va tester DU SERVICE WEB AVEC SOAPUI et on vérifie que la réponse contient "Bonjour".
