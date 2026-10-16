@@ -70,14 +70,9 @@ def update_student(id):
 #supprimer un étudiant 
 @app.route('/students/<int:id>', methods=['DELETE'])
 def delete_student(id):
-    student=next((s for s in students if s['id']==id),None)
-
-    if not student:
-        return jsonify({"error: etudiant non trouvé"}),404
-
-    students.remove(student)
-    return jsonify({"message": "Étudiant supprimé avec succès !"}), 200
-
+    global students
+    students = [s for s in students if s['id'] != id]
+    return jsonify({"message": "tudiant supprimé"}), 200
 
 # Lancer le serveur
 # Force Flask à écouter sur toutes les interfaces (IPv4 + IPv6) :
