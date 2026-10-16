@@ -1,3 +1,4 @@
+package java_rmi;
 import java.rmi.server.*;
 import java.rmi.*;
 

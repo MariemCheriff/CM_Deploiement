@@ -1,3 +1,4 @@
+package java_rmi;
 import java.rmi.registry.*;
 import java.rmi.*;;
 

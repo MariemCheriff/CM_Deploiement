@@ -1,4 +1,4 @@
-package tp;
+package tp.java_test;
 
 import javax.xml.ws.Endpoint;
 

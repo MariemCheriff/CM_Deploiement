@@ -1,4 +1,4 @@
-package tp;
+package tp.java_test;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;

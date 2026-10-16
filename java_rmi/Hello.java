@@ -1,3 +1,4 @@
+package java_rmi;
 
 // Java rmi permet d'appeler objet situé sur une autre machine
 import java.rmi.*;
