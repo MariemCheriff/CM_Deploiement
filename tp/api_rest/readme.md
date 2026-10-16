@@ -103,3 +103,24 @@ Le fichier `test_api.php` permet de récupérer la liste des étudiants depuis l
 Le fichier `test_api_1.php` est une version améliorée qui affiche les étudiants dans un tableau.
 
 Les deux fichiers utilisent `file_get_contents()` pour envoyer une requête HTTP GET et `json_decode()` pour convertir la réponse JSON en tableau PHP.
+
+
+
+### 3. Test de l'API avec PHP : test_api3.php
+
+
+Le fichier `config.php` centralise l'adresse de l'API :
+
+```php
+<?php
+define('API_BASE_URL', 'http://127.0.0.1:5001');
+```
+
+
+**Explication du fonctionnement :**
+
+- `require_once` charge le fichier `config.php`, qui contient l'adresse de l'API.
+- `API_BASE_URL . '/students'` construit l'URL de la route Flask.
+
+
+ça permet d'utiliser un fichier de configuration séparé afin de centraliser l'adresse de l'API.
