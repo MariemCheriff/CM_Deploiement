@@ -64,3 +64,33 @@ On peut aussier tester sur le terminal :
 curl -X TYPE_METHODE URL_ROUTE
 
 Les étudiants sont stockés dans une liste Python en mémoire. Les modifications et les ajouts sont donc perdus lorsque le serveur est arrêté ou redémarré.
+
+## Test de l'API REST avec PHP et XAMPP
+
+Il est possible de tester l'API REST depuis un client PHP. XAMPP fournit PHP et le serveur web Apache nécessaires pour exécuter le fichier `test_api.php`.
+
+### 1. Créer le fichier PHP
+
+Créer un fichier `test_api.php` dans le dossier `htdocs` de XAMPP, par exemple `C:\xampp\htdocs\test_api.php`.
+
+```php
+<?php
+$url = "http://localhost:5001/students";
+
+$response = file_get_contents($url);
+
+echo "<pre>";
+echo $response;
+echo "</pre>";
+?>
+```
+
+### 2. Exécuter le test
+
+- Démarrer **Apache** depuis le panneau de contrôle XAMPP.
+- Démarrer le serveur Flask avec la commande `python test.py`.
+- Ouvrir le navigateur à l'adresse suivante : http://localhost/test_api.php
+
+Le fichier PHP envoie une requête HTTP GET à l'API Flask et affiche la liste des étudiants au format JSON.
+
+**Remarque :** Flask doit être démarré sur le port `5001`, conformément à la configuration de l'application.
