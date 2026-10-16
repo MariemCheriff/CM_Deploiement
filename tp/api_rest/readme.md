@@ -1,14 +1,14 @@
 # API REST – Gestion des étudiants
 
-Cette application utilise **Flask**, un framework Python qui permet de créer facilement des serveurs et  API REST.
+On utilise Flask , un framework Python qui permet de créer facilement les API REST.
 
-L'API REST permet de gérer des étudiants : récupérer la liste des étudiants, ajouter un étudiant ou rechercher un étudiant par son identifiant.
+L'API REST permet de gérer des étudiants : récupérer la liste des étudiants, ajouter un étudiant, rechercher un étudiant par son identifiant, modifier ses informations et le supprimer.
 
-Elle est comparable à **Java RMI**, car les deux permettent la communication entre des applications distantes. Cependant, contrairement à Java RMI, qui repose principalement sur des objets et des interfaces Java, l'API REST utilise le protocole HTTP et le format JSON, ce qui facilite l'interopérabilité entre des applications développées dans différents langages.
+Elle est comparable à Java RMI, car les deux permettent la communication entre des applications distantes. Cependant, contrairement à Java RMI, qui repose principalement sur des objets et des interfaces Java, l'API REST utilise le protocole HTTP et le format JSON, ce qui facilite l'interopérabilité entre des applications développées dans différents langages.
 
 ## Installation
 
- il faut installer flask, il faut écrire dans le temrinal
+Pour installer Flask, il faut exécuter la commande dans le terminal :
 
 ```bash
 python -m pip install flask
@@ -16,16 +16,51 @@ python -m pip install flask
 
 ## Exécution
 
+On lance le serveur avec la commande :
+
 ```bash
-python test.py
+python app.py
 ```
 
-L'API est accessible à l'adresse : http://127.0.0.1:5000/
+L'API est accessible à l'adresse : http://127.0.0.1:5001/
 
 ## Fonctionnalités
 
+- `GET /` : vérifier que le serveur fonctionne.
 - `GET /students` : récupérer tous les étudiants.
 - `POST /students` : ajouter un étudiant.
 - `GET /students/<id>` : récupérer un étudiant par son identifiant.
+- `PUT /students/<id>` : modifier les informations d'un étudiant.
+- `DELETE /students/<id>` : supprimer un étudiant.
 
-ATTENTION !!! : /students : le nom de la route ici est une bonne pratique et ne veut pas dire la variables locale students 
+**Attention :`/students` est le nom de la route de l'API. Il ne correspond pas directement à la variable Python locale `students`, même si cette variable contient la liste des étudiants utilisée par les fonctions. C'est plutot une bonne pratique.
+
+## Test de l'API REST avec Postman
+
+Pour tester l'API, on peut utiliser Postman, en choisissant la méthode HTTP correspondante et l'URL de la ressource.
+
+- GET : `http://127.0.0.1:5001/students` pour afficher tous les étudiants.
+- POST : `http://127.0.0.1:5001/students` pour ajouter un étudiant.
+- GET : `http://127.0.0.1:5001/students/1` pour afficher l'étudiant d'identifiant 1.
+- PUT : `http://127.0.0.1:5001/students/1` pour modifier l'étudiant d'identifiant 1.
+- DELETE : `http://127.0.0.1:5001/students/1` pour supprimer l'étudiant d'identifiant 1.
+
+Pour les requêtes POST et PUT, sélectionner `Body`, puis `raw` et `JSON` dans Postman.
+
+Exemple de données JSON :
+
+```json
+{
+  "name": "Meriem",
+  "age": 22
+}
+```
+
+Cliquer sur Send pour envoyer la requête et consulter la réponse du serveur.
+
+!!! : 
+
+On peut aussier tester sur le terminal : 
+curl -X TYPE_METHODE URL_ROUTE
+
+Les étudiants sont stockés dans une liste Python en mémoire. Les modifications et les ajouts sont donc perdus lorsque le serveur est arrêté ou redémarré.

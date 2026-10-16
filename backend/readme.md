@@ -5,3 +5,5 @@ Le service a une méthode say_hello qui retourne le message bonjour. Il utilise 
 Pour installer les dépendances: 
 1- pip install spyne lxml
 2- lancez le serveur avec python server.py. Le service est accessible à l’adresse http://localhost:8000.
+
+

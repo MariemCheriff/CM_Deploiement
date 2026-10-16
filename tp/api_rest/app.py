@@ -41,14 +41,42 @@ def add_student():
     # Le code 201 pour dire création réussie
 
 
-# Récupérer un étudiant par son ID
-@app.route('/students/<int:student_id>', methods=['GET'])
-def get_student(student_id):
-    for student in students:
-        if student["id"] == student_id:
-            return jsonify(student)
 
-    return jsonify({"error": "Étudiant non trouvé"}), 404
+# Afficher un étudiant sachant son identifiant
+@app.route('/students/<int:id>', methods=['GET'])
+def get_student(id):
+    student = next((s for s in students if s['id'] == id), None)
+
+    if student:
+        return jsonify(student)
+
+    return jsonify({"erreur": "L'étudiant n'existe pas !"}), 404
+
+
+
+# Modifier un étudiant (PUT)
+@app.route('/students/<int:id>', methods=['PUT'])
+def update_student(id):
+    student = next((s for s in students if s['id'] == id), None)
+
+    if not student:
+        return jsonify({"message": "Étudiant non trouvé !"}), 404
+
+    data = request.get_json()
+    student.update(data)  # Mise à jour des données
+
+    return jsonify(student), 200
+
+#supprimer un étudiant 
+@app.route('/students/<int:id>', methods=['DELETE'])
+def delete_student(id):
+    student=next((s for s in students if s['id']==id),None)
+
+    if not student:
+        return jsonify({"error: etudiant non trouvé"}),404
+
+    students.remove(student)
+    return jsonify({"message": "Étudiant supprimé avec succès !"}), 200
 
 
 # Lancer le serveur
