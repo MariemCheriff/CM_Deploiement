@@ -27,3 +27,5 @@ L'API est accessible à l'adresse : http://127.0.0.1:5000/
 - `GET /students` : récupérer tous les étudiants.
 - `POST /students` : ajouter un étudiant.
 - `GET /students/<id>` : récupérer un étudiant par son identifiant.
+
+ATTENTION !!! : /students : le nom de la route ici est une bonne pratique et ne veut pas dire la variables locale students 
