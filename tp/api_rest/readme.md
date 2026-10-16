@@ -134,3 +134,10 @@ La classe `StudentService` centralise la récupération des étudiants depuis l'
 - Code plus lisible et plus facile à maintenir et à évoluer.
 
 La méthode étant `static`, elle peut être appelée directement avec `StudentService::getAllStudents()`, sans créer d'objet.
+
+
+### Séparation du contrôleur et de la vue
+
+Le fichier test_api5.php joue le rôle de contrôleur : il récupère les données des étudiants via StudentService , puis les transmet à la vue views/students.php pour l'affichage.
+
+utilité : séparer la récupération des données de leur affichage, rendre le code plus lisible et faciliter sa maintenance. Cette organisation suit le principe de l'architecture MVC (Modèle, Vue, Contrôleur).
