@@ -124,3 +124,13 @@ define('API_BASE_URL', 'http://127.0.0.1:5001');
 
 
 ça permet d'utiliser un fichier de configuration séparé afin de centraliser l'adresse de l'API.
+
+
+### Utilisation de la POO avec StudentService :test_api4.php
+
+La classe `StudentService` centralise la récupération des étudiants depuis l'API REST Flask grâce à la méthode statique `getAllStudents()`.
+ça permet de : 
+- Réutilisation du code.
+- Code plus lisible et plus facile à maintenir et à évoluer.
+
+La méthode étant `static`, elle peut être appelée directement avec `StudentService::getAllStudents()`, sans créer d'objet.
